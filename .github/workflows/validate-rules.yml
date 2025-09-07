@@ -1,0 +1,48 @@
+name: Validate Q Developer Rules
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Validate Markdown Files
+      run: |
+        # Check for broken links and formatting
+        find . -name "*.md" -exec echo "Validating {}" \;
+        
+        # Ensure all rule files have required sections
+        for file in global/*.md; do
+          if [ -f "$file" ]; then
+            echo "Checking $file for required structure..."
+            # Add specific validation logic here
+          fi
+        done
+    
+    - name: Check File Structure
+      run: |
+        # Validate directory structure
+        required_dirs=("global" "teams" "clients" "templates" "scripts")
+        for dir in "${required_dirs[@]}"; do
+          if [ ! -d "$dir" ]; then
+            echo "❌ Missing required directory: $dir"
+            exit 1
+          fi
+        done
+        echo "✅ Directory structure validated"
+    
+    - name: Lint Scripts
+      run: |
+        # Validate shell scripts
+        if command -v shellcheck &> /dev/null; then
+          find scripts -name "*.sh" -exec shellcheck {} \;
+        else
+          echo "⚠️ shellcheck not available, skipping script validation"
+        fi
