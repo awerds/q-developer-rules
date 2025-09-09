@@ -24,12 +24,14 @@ npm install -g @aws/mcp-server-frontend
 ### 2. Configure Environment Variables
 
 ```bash
-# GitHub token for repository operations
-export GITHUB_TOKEN="your_github_token_here"
+# Secure credential configuration
+# Use AWS credential provider chain (recommended)
+aws configure set profile.mcp-profile.region us-east-1
+aws configure set profile.mcp-profile.role_arn arn:aws:iam::ACCOUNT:role/MCPRole
 
-# AWS credentials (if not using IAM roles)
-export AWS_REGION="us-east-1"
-export AWS_PROFILE="default"
+# Or use environment variables (less secure)
+# export AWS_PROFILE=mcp-profile
+# export GITHUB_TOKEN=$(aws secretsmanager get-secret-value --secret-id github-token --query SecretString --output text)
 ```
 
 ### 3. Create MCP Configuration

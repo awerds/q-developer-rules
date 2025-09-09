@@ -2,8 +2,11 @@
   "mcpServers": {
     "aws-knowledge": {
       "command": "npx",
-      "args": ["@aws/mcp-server-aws-knowledge"],
-      "env": {},
+      "args": ["@aws/mcp-server-aws-knowledge@1.0.0"],
+      "env": {
+        "AWS_REGION": {"type": "env", "name": "AWS_REGION", "default": "us-east-1"},
+        "AWS_PROFILE": {"type": "env", "name": "AWS_PROFILE", "optional": true}
+      },
       "description": "AWS-managed server for official documentation and guidance"
     },
     "aws-api": {
@@ -30,7 +33,7 @@
       "command": "npx",
       "args": ["github-mcp-server"],
       "env": {
-        "GITHUB_TOKEN": "${GITHUB_TOKEN}"
+        "GITHUB_TOKEN": {"type": "env", "name": "GITHUB_TOKEN"}
       },
       "description": "Repository management and Git operations"
     },

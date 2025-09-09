@@ -92,9 +92,11 @@ MCP servers extend Q Developer's capabilities by providing access to external da
 ## Updates & Maintenance
 
 ### Version Management
+- **Pin specific versions** instead of using @latest
 - Track MCP server versions and update schedules
 - Test updates in development environments first
 - Maintain rollback procedures for failed updates
+- Verify package integrity before installation
 
 ### Performance Monitoring
 - Regular performance assessments
