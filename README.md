@@ -28,6 +28,27 @@ ln -s ~/q-developer-rules/global ~/.aws/amazonq/rules
 - **Cost Optimization** - FinOps, resource efficiency
 - **Operations** - Monitoring, logging, automation
 - **Development** - Coding standards, testing, CI/CD
+- **MCP Integration** - Model Context Protocol servers and workflows
+
+## 🤖 MCP Integration
+
+**Model Context Protocol servers extend Q Developer capabilities:**
+
+```bash
+# Quick setup for AWS consulting
+./scripts/install-aws-mcp-servers.sh
+
+# Configure MCP servers
+cp templates/mcp-config-template.json ~/.aws/amazonq/mcp-config.json
+```
+
+**Essential MCP servers for solo AWS consulting:**
+- AWS Knowledge MCP - Official documentation and guidance
+- AWS CDK MCP - Infrastructure as Code development
+- Playwright MCP - UI testing and browser automation
+- GitHub MCP - Repository and Git operations
+
+See `docs/mcp-setup-guide.md` for detailed configuration.
 
 ## 🔄 Updates
 

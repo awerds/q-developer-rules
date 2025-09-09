@@ -1,0 +1,78 @@
+{
+  "mcpServers": {
+    "aws-knowledge": {
+      "command": "npx",
+      "args": ["@aws/mcp-server-aws-knowledge"],
+      "env": {},
+      "description": "AWS-managed server for official documentation and guidance"
+    },
+    "aws-api": {
+      "command": "npx", 
+      "args": ["@aws/mcp-server-aws-api"],
+      "env": {
+        "AWS_REGION": "us-east-1"
+      },
+      "description": "Direct AWS service interaction via CLI commands"
+    },
+    "aws-cdk": {
+      "command": "npx",
+      "args": ["@aws/mcp-server-cdk"],
+      "env": {},
+      "description": "Infrastructure as Code with CDK and security compliance"
+    },
+    "playwright": {
+      "command": "npx",
+      "args": ["@playwright/mcp"],
+      "env": {},
+      "description": "Browser automation, UI testing, and screenshots"
+    },
+    "github": {
+      "command": "npx",
+      "args": ["github-mcp-server"],
+      "env": {
+        "GITHUB_TOKEN": "${GITHUB_TOKEN}"
+      },
+      "description": "Repository management and Git operations"
+    },
+    "filesystem": {
+      "command": "npx",
+      "args": ["@modelcontextprotocol/server-filesystem", "${HOME}"],
+      "env": {},
+      "description": "Local file and project management"
+    },
+    "aws-cost-explorer": {
+      "command": "npx",
+      "args": ["@aws/mcp-server-cost-explorer"],
+      "env": {},
+      "description": "Cost analysis and optimization insights",
+      "optional": true
+    },
+    "aws-pricing": {
+      "command": "npx", 
+      "args": ["@aws/mcp-server-pricing"],
+      "env": {},
+      "description": "Pre-deployment cost estimation",
+      "optional": true
+    },
+    "frontend": {
+      "command": "npx",
+      "args": ["@aws/mcp-server-frontend"],
+      "env": {},
+      "description": "React and modern web development guidance",
+      "optional": true
+    },
+    "dynamodb": {
+      "command": "npx",
+      "args": ["@aws/mcp-server-dynamodb"],
+      "env": {},
+      "description": "NoSQL database operations for SaaS projects",
+      "optional": true
+    }
+  },
+  "configuration": {
+    "maxConcurrentServers": 8,
+    "timeout": 30000,
+    "retryAttempts": 3,
+    "logLevel": "info"
+  }
+}
